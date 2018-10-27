@@ -10,9 +10,6 @@ window.app = window.angular
     'ngMessages',
     'ngMaterial'
   ])
-  .config(['$mdThemingProvider', function ($mdThemingProvider) {
-    $mdThemingProvider.generateThemesOnDemand(true)
-  }])
   .constant('os', window.os)
   .constant('oak', window.oak)
   .constant('_', window.lodash)

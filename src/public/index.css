@@ -13,6 +13,9 @@
   font-family: 'TradeGothic';
   src: url("/fonts/TradeGothCond18.ttf") format('truetype');
 }
+style {
+  display: none;
+}
 html,
 body {
   height: 100%;
@@ -41,6 +44,9 @@ body .md-select-menu-container {
 }
 body [placeholder] {
   color: #f00;
+}
+body md-content {
+  background-color: #fff;
 }
 body .md-input,
 body md-select,
