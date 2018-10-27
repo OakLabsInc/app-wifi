@@ -1,0 +1,36 @@
+doctype html
+html(ng-app='wifiApp')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
+
+    link(href='/vendor/angular-material.min.css', rel='stylesheet', type='text/css')
+    link(href='/index.css', rel='stylesheet', type='text/css')
+    link(href='/vendor/demo.css', rel='stylesheet', type='text/css')
+
+  body(ng-controller='appController' ng-cloak)
+    md-content(layout-padding='')
+      .wifi
+        .icon-connection
+      md-divider
+      div(tablist='')
+        md-input-container(md-no-float, class='md-block')
+          label SSID
+          md-select(ng-model="wifi.ssid" tab-index='1' required='')
+            md-optgroup
+              md-option(ng-repeat="point in visible_access_points", ng-value="point.ssid" ng-attr="$index === 1?'aria-selected':''") {{point.ssid}}
+        md-input-container(md-no-float, class='md-block')
+          label Password
+          input(ng-model='wifi.passphrase' type='password' tab-index='2')
+      md-divider
+      section(layout='row' layout-md='column' layout-align='center center' layout-wrap)
+        md-button(class='md-raised' ng-click="addWifi(wifi)") Add Wifi
+        md-button(class='md-raised' ng-click="forgetWifi(wifi)") Forget Wifi
+      div.spacer
+      md-divider
+      section(layout='column' layout-md='column' layout-align='top center' ng-if='known_wifi_networks.length')
+        div Known Wifi Networks
+        div.spacer.lg
+        div(ng-repeat="network in known_wifi_networks") {{network.ssid}}
+
+    script(src='/index.js')
