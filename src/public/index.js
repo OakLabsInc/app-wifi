@@ -21,7 +21,6 @@ window.app = window.angular
   })
 
 window.app.controller('appController', function ($log, $timeout, $scope, $http, $window, oak, _) {
-
   // ripples
   $scope.untapped = true
   $scope.cursor = {
@@ -76,14 +75,14 @@ window.app.controller('appController', function ($log, $timeout, $scope, $http, 
     }
   }
 
-  $scope.visible_access_points = []
+  $scope.visibleAccessPoints = []
   $scope.getAvailableWifi = function () {
     $http({
       method: 'GET',
       url: '/wifi/available'
     }).then(function successCallback (response) {
       $log.info(response)
-      $scope.visible_access_points = response.data.visible_access_points
+      $scope.visibleAccessPoints = response.data.visibleAccessPoints
     }, function errorCallback (response) {
       $log.info(response)
     })
@@ -94,7 +93,7 @@ window.app.controller('appController', function ($log, $timeout, $scope, $http, 
       url: '/wifi/known'
     }).then(function successCallback (response) {
       $log.info(response)
-      $scope.known_wifi_networks = response.data.wifi_networks
+      $scope.knownWifiNetworks = response.data.wifiNetworks
     }, function errorCallback (response) {
       $log.info(response)
     })
