@@ -29,15 +29,15 @@
     "@oaklabs/platform": "~2.0.1",
     "angular": "~1.7.2",
     "angular-animate": "~1.7.2",
-    "angular-aria": "^1.7.5",
-    "angular-material": "^1.1.10",
-    "angular-messages": "^1.7.5",
+    "angular-aria": "~1.7.5",
+    "angular-material": "~1.1.10",
+    "angular-messages": "~1.7.5",
     "express": "~4.16.3",
     "lodash": "~4.17.10",
     "oak-tools": "~0.5.7",
     "pug": "~2.0.3",
     "stylus": "~0.54.5",
-    "uuid": "^3.3.2"
+    "uuid": "~3.3.2"
   },
   "private": true
 }
