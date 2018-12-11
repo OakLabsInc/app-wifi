@@ -4,9 +4,7 @@ const debug = process.env.NODE_ENV !== 'production'
 const oak = require('oak')
 const { join } = require('path')
 const _ = require('lodash')
-const pug = require('pug')
 const tools = require('oak-tools')
-const OakPlatform = require('@oaklabs/platform')
 
 oak.catchErrors()
 
@@ -26,7 +24,6 @@ let publicPath = join(__dirname, 'public')
 let viewsPath = join(__dirname, 'views')
 
 let window = null
-let platformHost = null
 
 app.set('views', viewsPath)
 app.set('view engine', 'pug')

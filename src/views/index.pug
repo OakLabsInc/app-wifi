@@ -20,7 +20,7 @@ html(ng-app='wifiApp')
           label SSID
           md-select(ng-model="wifi.ssid" tab-index='1' required='')
             md-optgroup
-              md-option(ng-repeat="point in visible_access_points", ng-value="point.ssid" ng-attr="$index === 1?'aria-selected':''") {{point.ssid}}
+              md-option(ng-repeat="point in visibleAccessPoints", ng-value="point.ssid" ng-attr="$index === 1?'aria-selected':''") {{point.ssid}}
         md-input-container(md-no-float, class='md-block')
           label Password
           input(ng-model='wifi.passphrase' type='password' tab-index='2')
@@ -30,9 +30,9 @@ html(ng-app='wifiApp')
         md-button(class='md-raised' ng-click="forgetWifi(wifi)") Forget Wifi
       div.spacer
       md-divider
-      section(layout='column' layout-md='column' layout-align='top center' ng-if='known_wifi_networks.length')
+      section(layout='column' layout-md='column' layout-align='top center' ng-if='knownWifiNetworks.length')
         div Known Wifi Networks
         div.spacer.lg
-        div(ng-repeat="network in known_wifi_networks") {{network.ssid}}
+        div(ng-repeat="network in knownWifiNetworks") {{network.ssid}}
 
     script(src='/index.js')

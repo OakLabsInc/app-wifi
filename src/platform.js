@@ -1,5 +1,4 @@
 const OakPlatform = require('@oaklabs/platform')
-const _ = require('lodash')
 
 async function getWifiScan (cb = function () {}) {
   // open a connection to the platform host
