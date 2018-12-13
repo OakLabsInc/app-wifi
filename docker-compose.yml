@@ -2,11 +2,8 @@
 version: '3'
 services:
   server:
-    build:
-      context: ..
-      dockerfile: app-wifi/Dockerfile
+    build: .
     image: index.docker.io/oaklabs/app-wifi:latest
-    network_mode: host
     devices:
       - /dev/dri
     volumes:
@@ -15,6 +12,6 @@ services:
       - ./src:/app/src
     environment:
       - NODE_ENV=development
-      - DASHBOARD_HOST=dashboard.oak.host
+      - PLATFORM_HOST=192.168.0.66:443
     ports:
       - "9000:9000"
