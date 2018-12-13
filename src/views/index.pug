@@ -20,7 +20,7 @@ html(ng-app='wifiApp')
           label SSID
           md-select(ng-model="wifi.ssid" tab-index='1' required='')
             md-optgroup
-              md-option(ng-repeat="point in visibleAccessPoints", ng-value="point.ssid" ng-attr="$index === 1?'aria-selected':''") {{point.ssid}}
+              md-option(ng-repeat="point in visibleAccessPoints", ng-if="point.ssid !== ''", ng-value="point.ssid" ng-attr="$index === 1?'aria-selected':''") {{point.ssid}}
         md-input-container(md-no-float, class='md-block')
           label Password
           input(ng-model='wifi.passphrase' type='password' tab-index='2')
