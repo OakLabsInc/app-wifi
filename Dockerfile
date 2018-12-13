@@ -1,4 +1,4 @@
-FROM oaklabs/oak:4.3.4
+FROM oaklabs/oak:5.0.0-rc2
 
 WORKDIR /app
 COPY . /app
@@ -7,7 +7,7 @@ COPY . /app
 RUN npm i --engine-strict=true --progress=false --loglevel="error" \
     && npm cache clean --force
 
-CMD ["/app"]
+CMD ["/app/src/server.js"]
 
 ENV NODE_ENV=production 
 
