@@ -4,21 +4,16 @@ window.reload = function () {
   window.oak.reload()
 }
 
-window.app = window.angular
-  .module('wifiApp', [
-    'ngAnimate',
-    'ngMessages',
-    'ngMaterial'
-  ])
-  .constant('os', window.os)
-  .constant('oak', window.oak)
-  .constant('_', window.lodash)
-  .run(function ($rootScope) {
-    $rootScope._ = window.lodash
-  })
-  .config(function ($sceDelegateProvider) {
-    $sceDelegateProvider.resourceUrlWhitelist(['self'])
-  })
+window.app = window.angular.module('oakApp', ['ngAnimate','ngMessages','ngMaterial'])
+.constant('os', window.os)
+.constant('oak', window.oak)
+.constant('_', window.lodash)
+.run(function ($rootScope) {
+  $rootScope._ = window.lodash
+})
+.config(function ($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist(['self'])
+})
 
 window.app.controller('appController', function ($log, $timeout, $scope, $http, $window, oak, _) {
   // ripples
@@ -82,7 +77,7 @@ window.app.controller('appController', function ($log, $timeout, $scope, $http, 
       url: '/wifi/available'
     }).then(function successCallback (response) {
       $log.info(response)
-      $scope.visibleAccessPoints = response.data.visibleAccessPoints
+      $scope.visibleAccessPoints = response.data.visible_access_points
     }, function errorCallback (response) {
       $log.info(response)
     })
@@ -93,7 +88,7 @@ window.app.controller('appController', function ($log, $timeout, $scope, $http, 
       url: '/wifi/known'
     }).then(function successCallback (response) {
       $log.info(response)
-      $scope.knownWifiNetworks = response.data.wifiNetworks
+      $scope.knownWifiNetworks = response.data.wifi_networks
     }, function errorCallback (response) {
       $log.info(response)
     })

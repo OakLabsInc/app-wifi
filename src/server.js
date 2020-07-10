@@ -20,6 +20,8 @@ const logger = tools.logger({
   pretty: debug
 })
 
+require('dotenv').config()
+process.noAsar = false
 let publicPath = join(__dirname, 'public')
 let viewsPath = join(__dirname, 'views')
 
@@ -107,7 +109,8 @@ async function loadWindow () {
       join(__dirname, '..', 'node_modules', 'angular-animate'),
       join(__dirname, '..', 'node_modules', 'angular-aria'),
       join(__dirname, '..', 'node_modules', 'angular-messages'),
-      join(__dirname, '..', 'node_modules', 'angular-material')
+      join(__dirname, '..', 'node_modules', 'angular-material'),
+      join(__dirname, 'public', 'index.js')
     ]
   })
     .on('ready', function () {

@@ -1,5 +1,4 @@
-doctype html
-html(ng-app='wifiApp')
+html(ng-app='oakApp')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
@@ -34,5 +33,3 @@ html(ng-app='wifiApp')
         div Known Wifi Networks
         div.spacer.lg
         div(ng-repeat="network in knownWifiNetworks") {{network.ssid}}
-
-    script(src='/index.js')
